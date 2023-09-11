@@ -4,10 +4,10 @@ class Person {
 
 const max = new Person('Maxim')
 // Demo comment
-const btn = document.querySelector('#btn1')!
-btn.addEventListener('click', () => {
-    console.log('Btn clicked!');
-})
+// const btn = document.querySelector('#btn1')!
+// btn.addEventListener('click', () => {
+//     console.log('Btn clicked!');
+// })
 
 // =============
 

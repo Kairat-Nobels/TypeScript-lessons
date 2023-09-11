@@ -3,10 +3,6 @@ class Person {
     constructor(name) { }
 }
 const max = new Person('Maxim');
-const btn = document.querySelector('#btn1');
-btn.addEventListener('click', () => {
-    console.log('Btn clicked!');
-});
 let anyFlag;
 function logInfo(data, _) {
     console.log(data);

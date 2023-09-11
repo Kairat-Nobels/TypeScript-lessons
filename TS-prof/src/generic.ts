@@ -63,4 +63,72 @@ console.log(getObjectValue(person, 'goals'));
 console.log(getObjectValue(person, 'job'));
 
 // ==================
-// Классы
+// Классы и дженерики
+
+class Collection<T extends number | string | boolean>{
+    constructor(private _items: T[] = []) { }
+
+    add(item: T) {
+        this._items.push(item);
+    }
+
+    remove(item: T) {
+        this._items = this._items.filter(i => i !== item)
+    }
+
+    get items() {
+        return this._items
+    }
+}
+
+// необязательно здесь указывать дженерик тип при создании коллекции
+const strings = new Collection<string>(['Lets', 'get', 'started', 'the best', 'work']);
+
+strings.add('Kairat')
+strings.remove('work')
+console.log(strings.items);
+
+const numbers = new Collection<number>([1, 2, 3, 4, 5]);
+
+numbers.add(10)
+numbers.remove(3)
+console.log(numbers.items);
+
+// Проблема класса коллекций - он не может работать с объектами корректно
+// для решения этой ошибки, указываем что наша коллекция работает исключительно с примитивными типами данных
+
+// const objs = new Collection<object>([{ a: 23 }, { b: 43 }])
+// objs.remove({ b: 43 })
+// console.log(objs.items);
+
+// =================================
+interface Car {
+    model: string
+    year: number
+}
+
+function createCar(model: string, year: number): Car {
+    // используем специальную утилиту Partial чтобы избавиться от ошибки
+    const car: Partial<Car> = {}
+
+    if (model.length > 3) car.model = model
+    if (year > 2000) car.year = year
+
+    return car as Car
+}
+
+// ===============================
+// если сделать Readonly - то мы не можем изменять массив
+const cars: Readonly<Array<string>> = ['Ford', 'Ferrari', 'Camry']
+// cars.shift()
+console.log(cars[2]);
+
+// Делаем только для чтения
+const ford: Readonly<Car> = {
+    model: 'Ford',
+    year: 2020
+}
+
+// ford.model = 'Ferrari'
+console.log('Avto ford: ', ford);
+

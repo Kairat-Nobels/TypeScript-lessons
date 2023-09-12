@@ -52,4 +52,34 @@ CardComponent = __decorate([
 const card = new CardComponent('My Card Component');
 const btn = document.querySelector('#btn1');
 btn.addEventListener('click', card.logName);
+const validators = {};
+function Required(target, propName) {
+    validators[target.constructor.name] = Object.assign(Object.assign({}, validators[target.constructor.name]), { [propName]: `required` });
+}
+function validate(obj) {
+    const objConfig = validators[obj.constructor.name];
+    if (!objConfig)
+        return true;
+    let isValid = true;
+    Object.keys(objConfig).forEach(key => {
+        if (objConfig[key] === 'required') {
+            isValid = isValid && !!obj[key];
+        }
+    });
+    return isValid;
+}
+class Form {
+    constructor(email) {
+        this.email = email;
+    }
+}
+__decorate([
+    Required
+], Form.prototype, "email", void 0);
+const form = new Form('');
+console.log(form);
+if (validate(form))
+    console.log('Valid: ', form);
+else
+    console.log('validation error');
 //# sourceMappingURL=decorators.js.map

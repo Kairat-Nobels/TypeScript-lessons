@@ -16,3 +16,13 @@ function filterAnagrams(str, arr)
 }
 filterAnagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']);
 // ['aabb', 'bbaa']
+
+const words = sentence.split(' ');
+const initial = {};
+const result = words.reduce((acc, word) =>
+{
+    acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;
+    return acc;
+}, initial);
+
+console.log(result);

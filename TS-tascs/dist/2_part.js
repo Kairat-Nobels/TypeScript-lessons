@@ -43,4 +43,26 @@ function getParams(query) {
     return rez;
 }
 console.log(getParams('name=hexlet&count=3&order=asc'));
+var Company;
+(function (Company) {
+    function isEmployeeEmail(email, domen) {
+        return email.split('@')[1] === domen;
+    }
+    Company.isEmployeeEmail = isEmployeeEmail;
+})(Company || (Company = {}));
+console.log(Company.isEmployeeEmail('tirion@hexlet.io', 'hexlet.io'));
+console.log(Company.isEmployeeEmail('user@example.com', 'hexlet.io'));
+function filter(arr, callback) {
+    return arr.filter(callback);
+}
+const numbers5 = [1, -5, 2, 3, 4, 133];
+console.log(filter(numbers5, (n) => n > 3));
+console.log(filter(numbers5, (n) => n % 2 == 0));
+function map(arr, callbak) {
+    const rez = [];
+    arr.forEach((n, index) => rez.push(callbak(n, index)));
+    return rez;
+}
+console.log(map([3, 9], (n) => n - 3));
+console.log(map([8, 9], (n) => n + 8));
 //# sourceMappingURL=2_part.js.map

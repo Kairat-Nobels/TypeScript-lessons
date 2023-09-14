@@ -117,3 +117,71 @@ console.log(getParams('name=hexlet&count=3&order=asc'));
 
 //     return result;
 // }
+
+//? Пространство имен(Namespace)
+// Модули решают проблему разнородных сущностей и коллизий с помощью разнесения кода по нескольким файлам.Чтобы коллизии не возникали в рамках одного файла, используют механизм пространств имен namespace:
+// namespace Hello {
+//     export function helloWorld() {
+//         console.log("Hello, world!");
+//     }
+// }
+
+// const helloWorld = Hello.helloWorld();
+
+// Задание №4
+// Реализуйте namespace Company, в котором экспортируется функция isEmployeeEmail().Функция принимает почту и домен.Если емейл пользователя содержит указанный домен, то функция возвращает true:
+namespace Company {
+    export function isEmployeeEmail(email: string, domen: string): boolean {
+        return email.split('@')[1] === domen
+        // return email.endsWith(`@${domen}`);
+    }
+}
+// END
+
+type UserE = {
+    email: string
+};
+
+// function authorize(user: UserE | null): boolean {
+//     const companyDomain = 'hexlet.io';
+
+//     const email = user?.email ?? '';
+
+//     return Company.isEmployeeEmail(email, companyDomain);
+// }
+
+// export default authorize;
+
+console.log(Company.isEmployeeEmail('tirion@hexlet.io', 'hexlet.io'))
+console.log(Company.isEmployeeEmail('user@example.com', 'hexlet.io'))
+
+// Задание № 5
+// Реализуйте функцию filter(), которая принимает на вход массив чисел и предикат.Последний будет использоваться для проверки каждого числа на соответствие требованиям:
+
+function filter(arr: number[], callback: (n: number) => boolean) {
+    return arr.filter(callback);
+}
+// function filter(arr: number[], callback: (n: number) => boolean) {
+//     const rez: number[] = []
+//     for (let i of arr) {
+//         if (callback(i)) rez.push(i)
+//     }
+//     return rez
+// }
+const numbers5 = [1, -5, 2, 3, 4, 133];
+console.log(filter(numbers5, (n) => n > 3))
+console.log(filter(numbers5, (n) => n % 2 == 0))
+
+
+// Использование опциональных параметров в функциях
+// Задание №6
+// Реализуйте функцию map().Она должна принимать на вход массив чисел и колбек, который будет использоваться для преобразования каждого числа из массива в другое число.Функция возвращает массив с новыми числами:
+
+function map(arr: number[], callbak: (n: number, index?: number) => number): number[] {
+    const rez: number[] = []
+    arr.forEach((n, index) => rez.push(callbak(n, index)))
+    return rez
+}
+
+console.log(map([3, 9], (n) => n - 3))
+console.log(map([8, 9], (n) => n + 8))

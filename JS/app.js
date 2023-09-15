@@ -34,24 +34,24 @@
 // }
 
 // console.log('start');
-// for (var i = 0; i < 10; i++) {
-//     (function (j)
-//     {
-//         setTimeout(() => console.log(j))
-//     })(i)
-// }
+for (var i = 0; i < 10; i++) {
+    (function (j)
+    {
+        setTimeout(() => console.log(j))
+    })(i)
+}
 // console.log('end');
 
 // for (let i = 0; i < 10; i++) {
 //     setTimeout(() => console.log(i));
 // }
 
-for (var i = 0; i < 10; i++) {
-    setTimeout((function (j)
-    {
-        return function ()
-        {
-            console.log(j);
-        };
-    })(i), 0);
-}
+// for (var i = 0; i < 10; i++) {
+//     setTimeout((function (j)
+//     {
+//         return function ()
+//         {
+//             console.log(j);
+//         };
+//     })(i), 0);
+// }

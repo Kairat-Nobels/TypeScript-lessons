@@ -73,3 +73,27 @@ const lessonsCount = function ({ lessons }: { lessons: string[] }): number {
 }
 const course = { lessons: ['intro', 'lala'] };
 console.log(lessonsCount(course));
+
+//? TypeScript: Rest и Spread
+// Rest - оператор позволяет создавать функции с переменным числом параметров, при этом сворачивать их в массив:
+// function max(...numbers: number[]): number {
+//     return Math.max(...numbers);
+// }
+
+//? В этом смысле rest - оператор в TypeScript ничем не отличается от rest - оператора в JavaScript.А вот со spread - оператором есть одна особенность.
+// Spread - оператор в функциях — это как rest - оператор наоборот.Он позволяет раскладывать массив на отдельные параметры:
+// const numbers = [1, 2, 3];
+// Math.max(...numbers);
+// Если функция принимает на вход любое количество аргументов, как в примере выше, то такой код работает без проблем.Но если функция принимает на вход определенное число аргументов, то TypeScript выдаст ошибку компиляции
+
+// Задание №5
+// Определите функцию max(), которая отличается от примера из урока только тем, что у нее первый параметр обязательный.
+
+function max(first: number, ...numbers: number[]): number {
+    return Math.max(first, ...numbers)
+}
+console.log(max(1, 2, 3))
+console.log(max(234));
+
+//? TypeScript: Перегрузка функций (Function Overloads)
+//? Перегрузка функций — это возможность определить несколько версий одной функции, каждая из которых принимает свой набор параметров.

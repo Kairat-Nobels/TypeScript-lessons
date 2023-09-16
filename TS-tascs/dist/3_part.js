@@ -21,4 +21,9 @@ const lessonsCount = function ({ lessons }) {
 };
 const course = { lessons: ['intro', 'lala'] };
 console.log(lessonsCount(course));
+function max(first, ...numbers) {
+    return Math.max(first, ...numbers);
+}
+console.log(max(1, 2, 3));
+console.log(max(234));
 //# sourceMappingURL=3_part.js.map

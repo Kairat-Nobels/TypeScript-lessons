@@ -26,4 +26,11 @@ function max(first, ...numbers) {
 }
 console.log(max(1, 2, 3));
 console.log(max(234));
+function newYearCongratulate(data1, data2) {
+    if (typeof (data1) === 'number')
+        return `Hi ${data2}! Happy New Year ${data1}!`;
+    return `Hi ${data1}! Happy New Year!`;
+}
+console.log(newYearCongratulate('Kairat'));
+console.log(newYearCongratulate(2023, 'Kairat'));
 //# sourceMappingURL=3_part.js.map

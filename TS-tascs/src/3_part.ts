@@ -97,3 +97,13 @@ console.log(max(234));
 
 //? TypeScript: Перегрузка функций (Function Overloads)
 //? Перегрузка функций — это возможность определить несколько версий одной функции, каждая из которых принимает свой набор параметров.
+
+function newYearCongratulate(name: string): string
+function newYearCongratulate(year: number, name: string): string;
+function newYearCongratulate(data1: number | string, data2?: string): string {
+    if (typeof (data1) === 'number') return `Hi ${data2}! Happy New Year ${data1}!`
+    return `Hi ${data1}! Happy New Year!`
+}
+
+console.log(newYearCongratulate('Kairat'))
+console.log(newYearCongratulate(2023, 'Kairat'))

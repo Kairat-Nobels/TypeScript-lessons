@@ -55,3 +55,14 @@ for (var i = 0; i < 10; i++) {
 //         };
 //     })(i), 0);
 // }
+
+const obj = {
+    name: 'Kairat',
+    fn: () =>
+    {
+        console.log(name);
+    }
+}
+
+obj.fn()
+console.log(obj.name);

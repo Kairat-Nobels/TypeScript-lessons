@@ -128,6 +128,6 @@ const superMan: ISuperman = {
     guessWho: (guess) => (guess.toLowerCase() !== 'superman' ? `It's a ${guess}?` : `It's a ${guess}!`),
 };
 
-console.log(superMan.guessWho('bird')); // "It's a bird?";
-console.log(superMan.guessWho('plane')); "It's a plane?";
-console.log(superMan.guessWho('superman')); "It's a superman!";
+console.log(superMan.guessWho('bird'));
+console.log(superMan.guessWho('plane'));
+console.log(superMan.guessWho('superman')); 

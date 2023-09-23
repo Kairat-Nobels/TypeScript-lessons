@@ -66,7 +66,5 @@ const superMan = {
 };
 console.log(superMan.guessWho('bird'));
 console.log(superMan.guessWho('plane'));
-"It's a plane?";
 console.log(superMan.guessWho('superman'));
-"It's a superman!";
 //# sourceMappingURL=9_part.js.map

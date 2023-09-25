@@ -72,7 +72,6 @@ function buildSalaryStatistics(employees) {
     const values = Object.values(employees);
     rez.max = Math.max(...values);
     rez.min = Math.min(...values);
-    console.log(values.reduce((sum, values) => sum + values));
     rez.avg = (values.reduce((sum, values) => sum + values, 0)) / values.length;
     return rez;
 }
